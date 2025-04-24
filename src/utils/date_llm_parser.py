@@ -18,7 +18,7 @@ system_prompt = """
 2. Всегда используй **первые и последние календарные даты** в соответствующем диапазоне.
 3. Если в запросе несколько дат — выбери главный интервал.
 
-Тебе нужно извлечь даты строго в формате DD-MM-YYYY.
+Тебе нужно извлечь даты строго в формате DD-MM-YYYY, а также записать запрос без даты.
 """
 
 
@@ -39,7 +39,8 @@ def get_date_range_from_query(query: str) -> DateRange:
     start_date = parse_date(response_data['start_date'])
     end_date = parse_date(response_data['end_date'])
 
-    return DateRange(start_date=start_date, end_date=end_date)
+    return DateRange(start_date=start_date, end_date=end_date,
+                     query_without_date=response_data['query_without_date'])
 
 
 def parse_date(date_str: str) -> date:
@@ -63,6 +64,7 @@ def main():
     date_range = get_date_range_from_query(query)
     print(f"Start Date: {date_range.start_date}")
     print(f"End Date: {date_range.end_date}")
+    print(f"Query:", date_range.query_without_date)
 
 
 if __name__ == '__main__':
