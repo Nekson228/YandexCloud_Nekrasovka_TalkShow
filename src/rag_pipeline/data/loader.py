@@ -2,10 +2,7 @@ from pathlib import Path
 import json
 import pandas as pd
 
-filter_texts = [
-    "В интернете есть много сайтов с информацией на эту тему. [Посмотрите, что нашлось в поиске](https://ya.ru)"
-    "В интернете есть много сайтов с информацией на эту тему. [Посмотрите, что нашлось в поиске](https://ya.ru)."
-]
+from src.settings import filter_texts
 
 
 class DataLoader:

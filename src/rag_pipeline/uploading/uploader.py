@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 
 class FileUploader:
-    _files_cap: int | None = 300
+    _files_cap: int | None = None
     """
     A class to upload files to Yandex Cloud ML.
     """
