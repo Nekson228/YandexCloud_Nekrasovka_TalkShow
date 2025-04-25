@@ -1,14 +1,12 @@
 from pathlib import Path
 
 from src.settings import sdk, model, bot_token, filter_texts
+from src.settings import sdk, model
 from src.rag_pipeline.pipeline import RAGPipeline
 
 import logging
-
 import telebot
-
 import io
-
 from speechkit import model_repository
 
 logger = logging.getLogger(__name__)
@@ -18,6 +16,7 @@ instruction = """
 Твоя задача - отвечать пользователю на вопросы, которые будут содержать интересующую его тему. Тебе необходимо составить дайджест по этой теме с акцентом на противоречия в различных источниках.
 В запросе пользователя будет указан временной промежуток. Описывай статьи только из этого временного промежутка. 
 В начале описания темы укажи о чем дайджест. В начале описания события укажи дату события и источник, откуда ты взял информацию. 
+bot
 Подробно опиши освещаемое в статье событие.
 Если дата полученной статьи не соответствует временному промежутку в запросе - игнорируй эту статью.
 """

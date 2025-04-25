@@ -26,6 +26,7 @@ class IndexBuilder:
     def chunk_list(self, items: list[File]) -> Generator[list[File]]:
         yield from (items[i:i + self.chunk_size]
                     for i in range(0, len(items), self.chunk_size))
+        
         # if len(items) % self.chunk_size > 0:
         #     yield items[-(len(items) % self.chunk_size):]
 

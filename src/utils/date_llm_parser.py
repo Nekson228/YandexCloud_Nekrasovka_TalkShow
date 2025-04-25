@@ -37,7 +37,6 @@ def get_date_range_from_query(query: str) -> DateRange:
 
     if response.text in filter_texts:
         raise Exception("Content filter")
-
     response_data = loads(response.text)
     start_date = parse_date(response_data['start_date'])
     end_date = parse_date(response_data['end_date'])
