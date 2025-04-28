@@ -1,4 +1,4 @@
-from src.settings import model, filter_texts
+from src.settings import model, FILTER_TEXTS
 from src.models.date_range import DateRange
 
 from json import loads
@@ -35,7 +35,7 @@ def get_date_range_from_query(query: str) -> DateRange:
         {"role": "user", "text": query}
     ])
 
-    if response.text in filter_texts:
+    if response.text in FILTER_TEXTS:
         raise Exception("Content filter")
     response_data = loads(response.text)
     start_date = parse_date(response_data['start_date'])
@@ -62,11 +62,9 @@ def parse_date(date_str: str) -> date:
 
 
 def main():
-    query = "События в политике за первую половину января 1936"
+    query = "Литература в январе 1936 года"
     date_range = get_date_range_from_query(query)
-    print(f"Start Date: {date_range.start_date}")
-    print(f"End Date: {date_range.end_date}")
-    print(f"Query:", date_range.query_without_date)
+    print(date_range.format_query())
 
 
 if __name__ == '__main__':

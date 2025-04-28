@@ -2,12 +2,7 @@ from pathlib import Path
 import json
 import pandas as pd
 
-from src.settings import filter_texts
-filter_texts = [
-    "В интернете есть много сайтов с информацией на эту тему. [Посмотрите, что нашлось в поиске](https://ya.ru)"
-    "В интернете есть много сайтов с информацией на эту тему. [Посмотрите, что нашлось в поиске](https://ya.ru)."
-]
-
+from src.settings import FILTER_TEXTS
 
 class DataLoader:
     """
@@ -16,7 +11,7 @@ class DataLoader:
 
     def __init__(self, data_dir: Path) -> None:
         self.data_dir = data_dir
-        self.filter_texts = filter_texts
+        self.filter_texts = FILTER_TEXTS
 
     def load(self) -> pd.DataFrame:
         records: list[dict] = []
