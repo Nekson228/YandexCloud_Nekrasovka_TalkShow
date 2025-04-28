@@ -1,11 +1,15 @@
 from typing import Optional
 
+import logging
+
 from yandex_cloud_ml_sdk import YCloudML
 from yandex_cloud_ml_sdk._assistants.assistant import Assistant, Thread
 from yandex_cloud_ml_sdk._search_indexes.search_index import SearchIndex
 from yandex_cloud_ml_sdk._models.completions.model import GPTModel
 
 from src.utils.date_llm_parser import get_date_range_from_query
+
+logger = logging.getLogger(__name__)
 
 
 class AssistantManager:
@@ -39,10 +43,14 @@ class AssistantManager:
         if self.thread is None or self.assistant is None:
             raise RuntimeError("Assistant not initialized")
 
-        self.thread.write(self.preprocess_query(query))
+        # preprocessed_query = self.preprocess_query(query)
+        preprocessed_query = query
+        logger.info(f"Preprocessed query: {preprocessed_query}")
+        self.thread.write(query)
         run = self.assistant.run(self.thread)
         result = run.wait()
         return result.text
 
-    def preprocess_query(self, query: str) -> str:
+    @staticmethod
+    def preprocess_query(query: str) -> str:
         return get_date_range_from_query(query).format_query()
