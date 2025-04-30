@@ -1,0 +1,13 @@
+{
+  "date": "04-01-1936",
+  "source": "Вечерняя Москва",
+  "topic": "Ошибка при обработке колонки",
+  "summary": "В тексте представлена ошибка, возникшая при обработке колонки.",
+  "content": "[Ошибка при обработке колонки: <AioRpcError of RPC that terminated with:\n\tcode = StatusCode.INVALID_ARGUMENT\n\tdetails = \"Error in session internal_id=38a58dd5-ad5abcee-dd68761a-c7ad6ae9&request_id=19d652fd-42e3-442b-a84d-0882c394e57c&client_request_id=9ae2443d-7b8c-4cbf-9d3d-fb66b5440565&folder_id=b1giflegi2ke62rs80la: empty message text\"\n\tdebug_error_string = \"UNKNOWN:Error received from peer ipv4:158.160.54.160:443 {grpc_message:\"Error in session internal_id=38a58dd5-ad5abcee-dd68761a-c7ad6ae9&request_id=19d652fd-42e3-442b-a84d-0882c394e57c&client_request_id=9ae2443d-7b8c-4cbf-9d3d-fb66b5440565&folder_id=b1giflegi2ke62rs80la: empty message text\", grpc_status:3, created_time:\"2025-04-24T01:26:27.664882807+00:00\"}\"\n\tendpoint = \"llm.api.cloud.yandex.net:443\"\n\tstub_class = TextGenerationServiceStub\n\tx-client-request-id = \"9ae2443d-7b8c-4cbf-9d3d-fb66b5440565\"\n>]",
+  "entities": [
+    "AioRpcError",
+    "StatusCode.INVALID_ARGUMENT",
+    "TextGenerationServiceStub",
+    "llm.api.cloud.yandex.net"
+  ]
+}
